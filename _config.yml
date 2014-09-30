@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+title: ThinhThinh
+subtitle: Coding to Love and Loving to Code 
+author: Thinh Vu
 simple_search: https://www.google.com/search
-description:
+description: Anthropologist and product guy learning how to create through coding. These are my thoughts.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
