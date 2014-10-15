@@ -5,11 +5,9 @@ date: 2014-10-15 07:25:18 -0400
 comments: true
 categories: "Ruby", "Programming", "Flatiron School"
 ---
-
 The Tap method reminds me of Nightcrawler, the furry indigo teleporter from the Marvel Universe. He appears out of nowhere, kicks ass, and then disappears in a puff of smoke. 
 
-<center>
-![Nightcrawler teleports](http://24.media.tumblr.com/3ffc21146868e5951dd7e686d4fe9cbe/tumblr_mgr6utyoY31qfhq48o9_r2_250.gif)</center>
+->![Nightcrawler teleports](http://24.media.tumblr.com/3ffc21146868e5951dd7e686d4fe9cbe/tumblr_mgr6utyoY31qfhq48o9_r2_250.gif)<-
 
 The Tap method, born in Ruby >= 1.9, is a helper method that yields a block on your object and returns the object. As a method, it looks like this:
 
@@ -23,11 +21,12 @@ end
 
 This is especially useful when you are creating new classes because it allows you to assign properties from the get-go.
 
-<pre><code>nightcrawler = Hero.new
+<pre><code>#Creating a new hero object
+nightcrawler = Hero.new
 nightcrawler.name = "Nightcrawler"
 nightcrawler
 
-#with tap
+#Refactored with tap
 nightcrawler = Hero.new.tap{|h| name = "Nightcrawler"}
 </code></pre>
 
