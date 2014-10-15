@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://thinhthinh.github.io
-title: ThinhThinh
-subtitle: Coding the twenty-something dream
+title: Thought Schema
+subtitle: Programming the 20-something dream
 author: Thinh Vu
 simple_search: https://www.google.com/search
-description: Anthropologist and product guy learning how to create through coding. These are my thoughts.
+description: Ideas about the art of programming written from Brooklyn.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -64,13 +64,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: thinhthinh
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: tintinvu
 twitter_tweet_button: true
 
 # Google +1
