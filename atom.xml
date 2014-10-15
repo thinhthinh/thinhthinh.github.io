@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[ThinhThinh]]></title>
+  <title><![CDATA[Thought Schema]]></title>
   <link href="http://thinhthinh.github.io/atom.xml" rel="self"/>
   <link href="http://thinhthinh.github.io/"/>
-  <updated>2014-09-30T18:34:14-04:00</updated>
+  <updated>2014-10-15T07:06:03-04:00</updated>
   <id>http://thinhthinh.github.io/</id>
   <author>
     <name><![CDATA[Thinh Vu]]></name>
@@ -14,12 +14,16 @@
 
   
   <entry>
+    
     <title type="html"><![CDATA[My First Post on Octopress]]></title>
     <link href="http://thinhthinh.github.io/blog/2014/09/30/my-first-post-on-octopress/"/>
+    
     <updated>2014-09-30T18:25:37-04:00</updated>
     <id>http://thinhthinh.github.io/blog/2014/09/30/my-first-post-on-octopress</id>
+    
     <content type="html"><![CDATA[<p>Hello world. This is going to be life-changing.</p>
 ]]></content>
+    
   </entry>
   
 </feed>
