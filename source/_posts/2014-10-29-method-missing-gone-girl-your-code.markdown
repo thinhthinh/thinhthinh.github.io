@@ -32,7 +32,7 @@ class ActiveRecord::Base
 1. Method_missing takes three parameters: the method name, splatted arguments, and then a block to run.
 2. ActiveRecord is converting the method name into a string and then using Regex to match a find_by* pattern.
 3. This is the black box where the find_by* method is actually defined. **When the method is defined, method_missing will no longer be called for that particular method name.**
-4. Super allows Ruby to continue doing it's thing if the match did not happen.
+4. Super allows Ruby to continue doing its thing if the match did not happen.
 
 Try it yourself:
 
