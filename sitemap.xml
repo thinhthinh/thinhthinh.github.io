@@ -3,6 +3,14 @@
   
   
   <url>
+    <loc>http://thinhthinh.github.io/blog/2014/10/29/method-missing-gone-girl-your-code/</loc>
+    
+    <lastmod>2014-10-29T07:58:15-04:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://thinhthinh.github.io/blog/2014/10/15/tap-that-class/</loc>
     
     <lastmod>2014-10-15T00:00:00-04:00</lastmod>
@@ -21,14 +29,14 @@
   
   <url>
     <loc>http://thinhthinh.github.io/blog/archives/</loc>
-    <lastmod>2014-10-15T08:08:41-04:00</lastmod>
+    <lastmod>2014-10-29T08:24:09-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://thinhthinh.github.io/</loc>
-    <lastmod>2014-10-15T08:08:41-04:00</lastmod>
+    <lastmod>2014-10-29T08:24:09-04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
