@@ -118,8 +118,8 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">meth_sym</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span> <span class="c1">#1</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">meth_sym</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/^find_by_(.+)$/</span> <span class="c1">#2</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span> <span class="c1">#1</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">method_name</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/^find_by_(.+)$/</span> <span class="c1">#2</span>
 </span><span class='line'>      <span class="n">run_find_by_method</span><span class="p">(</span><span class="vg">$1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span> <span class="c1">#3</span>
 </span><span class='line'>    <span class="k">else</span>
 </span><span class='line'>      <span class="k">super</span> <span class="c1">#4</span>
@@ -159,16 +159,16 @@
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">if</span> <span class="nb">method</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/pattern_to_match/</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">method_name</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/pattern_to_match/</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">#This defines a class method for future usage.</span>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">send</span> <span class="p">(</span><span class="ss">:define_method</span><span class="p">,</span> <span class="nb">method</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">send</span> <span class="p">(</span><span class="ss">:define_method</span><span class="p">,</span> <span class="n">method_name</span><span class="p">)</span> <span class="k">do</span>
 </span><span class='line'>      <span class="c1"># Your magic</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">#This runs the newly minted method on your instance.</span>
-</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">method</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">method_name</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">else</span>
 </span><span class='line'>    <span class="k">super</span>
 </span><span class='line'>  <span class="k">end</span>
@@ -177,8 +177,8 @@
 </span><span class='line'><span class="c1">#To ensure continuity in how Ruby treats methods, </span>
 </span><span class='line'><span class="c1">#you override the respond_to method Ruby has </span>
 </span><span class='line'><span class="c1">#with a match to your new method.</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">respond_to?</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="n">include_private</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">method_id</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/^what_is_[\w]+/</span> <span class="p">?</span> <span class="kp">true</span> <span class="p">:</span> <span class="k">super</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">respond_to?</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="n">include_private</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">method_name</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/^what_is_[\w]+/</span> <span class="p">?</span> <span class="kp">true</span> <span class="p">:</span> <span class="k">super</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
