@@ -10,7 +10,7 @@ Yes, Gone Girl is a verb. To avoid giving anything away, take it to mean to disa
 
 ->![Gone Girl](http://media.giphy.com/media/5xtDarmb4oa1Jl01uik/giphy.gif)<-
 
-Wonder how ActiveRecord creates those find methods on the fly? Method_messing. In fact, method_missing is a pillar of metaprogramming and is instrumental in the creation of DSLs. 
+Wonder how ActiveRecord creates those find methods on the fly? Method_missing. In fact, method_missing is a pillar of metaprogramming and is instrumental in the creation of DSLs. 
 
 When a method is called, Ruby looks for the method in the instance methods, class methods, superclass methods, mixins, etc. Method_missing is the **last resort**.
 
