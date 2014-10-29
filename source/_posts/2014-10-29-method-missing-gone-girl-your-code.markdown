@@ -20,8 +20,8 @@ To see how it works, let's see how Active Record's find_by* methods are created:
 
 ```ruby
 class ActiveRecord::Base
-  def method_missing(meth_sym, *args, &block) #1
-    if meth_sym.to_s =~ /^find_by_(.+)$/ #2
+  def method_missing(method_name, *args, &block) #1
+    if method_name.to_s =~ /^find_by_(.+)$/ #2
       run_find_by_method($1, *args, &block) #3
     else
       super #4
@@ -37,16 +37,16 @@ class ActiveRecord::Base
 Try it yourself:
 
 ```ruby
-def method_missing(method, *arguments, &block)
-  if method.to_s =~ /pattern_to_match/
+def method_missing(method_name, *arguments, &block)
+  if method_name.to_s =~ /pattern_to_match/
 
     #This defines a class method for future usage.
-    self.class.send (:define_method, method) do
+    self.class.send (:define_method, method_name) do
       # Your magic
     end
     
     #This runs the newly minted method on your instance.
-    self.send(method)
+    self.send(method_name)
   else
     super
   end
@@ -55,8 +55,8 @@ end
 #To ensure continuity in how Ruby treats methods, 
 #you override the respond_to method Ruby has 
 #with a match to your new method.
-def respond_to?(method, include_private = false)
-  method_id.to_s =~ /^what_is_[\w]+/ ? true : super
+def respond_to?(method_name, include_private = false)
+  method_name.to_s =~ /^what_is_[\w]+/ ? true : super
 end
 ```
 
