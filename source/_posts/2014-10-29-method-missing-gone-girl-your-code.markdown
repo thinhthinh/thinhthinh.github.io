@@ -39,12 +39,14 @@ Try it yourself:
 ```ruby
 def method_missing(method, *arguments, &block)
   if method.to_s =~ /pattern_to_match/
-    #This sends a method to your entire class. 
-    #You can also use self.send to define 
-    #only an instance method.
+
+    #This defines a class method for future usage.
     self.class.send (:define_method, method) do
       # Your magic
     end
+    
+    #This runs the newly minted method on your instance.
+    self.send(method)
   else
     super
   end
