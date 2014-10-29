@@ -129,7 +129,7 @@
 <li>Method_missing takes three parameters: the method name, splatted arguments, and then a block to run.</li>
 <li>ActiveRecord is converting the method name into a string and then using Regex to match a find_by* pattern.</li>
 <li>This is the black box where the find_by* method is actually defined. <strong>When the method is defined, method_missing will no longer be called for that particular method name.</strong></li>
-<li>Super allows Ruby to continue doing it&rsquo;s thing if the match did not happen.</li>
+<li>Super allows Ruby to continue doing its thing if the match did not happen.</li>
 </ol>
 
 
@@ -154,14 +154,18 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="nb">method</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">if</span> <span class="nb">method</span><span class="o">.</span><span class="n">to_s</span> <span class="o">=~</span> <span class="sr">/pattern_to_match/</span>
-</span><span class='line'>    <span class="c1">#This sends a method to your entire class. </span>
-</span><span class='line'>    <span class="c1">#You can also use self.send to define </span>
-</span><span class='line'>    <span class="c1">#only an instance method.</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#This defines a class method for future usage.</span>
 </span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">send</span> <span class="p">(</span><span class="ss">:define_method</span><span class="p">,</span> <span class="nb">method</span><span class="p">)</span> <span class="k">do</span>
 </span><span class='line'>      <span class="c1"># Your magic</span>
 </span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#This runs the newly minted method on your instance.</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="nb">method</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">else</span>
 </span><span class='line'>    <span class="k">super</span>
 </span><span class='line'>  <span class="k">end</span>
