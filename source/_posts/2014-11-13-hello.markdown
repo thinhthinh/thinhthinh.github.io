@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "jQuery: e.preventDefault()"
-date: 2014-11-13 08:17:01 -0500
+title: "jQuery: e.preventDefault"
+date: 2014-11-13 08:21:39 -0500
 comments: true
-categories: jQuery
+categories: 
 ---
 
 > `e.preventDefault()` lets you play Kanye to the browser's Taylor Swift.
