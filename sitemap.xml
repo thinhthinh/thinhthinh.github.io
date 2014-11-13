@@ -3,6 +3,14 @@
   
   
   <url>
+    <loc>http://thinhthinh.github.io/blog/2014/11/13/jquery-e-dot-preventdefault/</loc>
+    
+    <lastmod>2014-11-13T08:17:01-05:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://thinhthinh.github.io/blog/2014/10/29/method-missing-gone-girl-your-code/</loc>
     
     <lastmod>2014-10-29T07:58:15-04:00</lastmod>
@@ -29,14 +37,14 @@
   
   <url>
     <loc>http://thinhthinh.github.io/blog/archives/</loc>
-    <lastmod>2014-10-29T10:21:50-04:00</lastmod>
+    <lastmod>2014-11-13T08:19:32-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://thinhthinh.github.io/</loc>
-    <lastmod>2014-10-29T10:21:50-04:00</lastmod>
+    <lastmod>2014-11-13T08:19:32-05:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

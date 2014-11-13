@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: jquery | Thought Schema]]></title>
+  <link href="http://thinhthinh.github.io/blog/categories/jquery/atom.xml" rel="self"/>
+  <link href="http://thinhthinh.github.io/"/>
+  <updated>2014-11-13T08:19:32-05:00</updated>
+  <id>http://thinhthinh.github.io/</id>
+  <author>
+    <name><![CDATA[Thinh Vu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[jQuery: e.preventDefault()]]></title>
+    <link href="http://thinhthinh.github.io/blog/2014/11/13/jquery-e-dot-preventdefault/"/>
+    <updated>2014-11-13T08:17:01-05:00</updated>
+    <id>http://thinhthinh.github.io/blog/2014/11/13/jquery-e-dot-preventdefault</id>
+    <content type="html"><![CDATA[<blockquote><p><code>e.preventDefault()</code> lets you play Kanye to the browser&rsquo;s Taylor Swift.</p></blockquote>
+
+<p>A browser responds to events within a document with default behaviors.</p>
+
+<p>For example, when a <code>&lt;a&gt;</code> element is clicked, the browser will automatically interpret the <code>href</code> attribute and reload the window. Other examples include:
+- A form submit button submits the form
+- The space bar scrolling down the page</p>
+
+<p>Yet often while designing your web application, you will want to define this behavior. You tell the default behavior to <strong>stop</strong> through <code>.preventDefault()</code>. Here&rsquo;s an example:</p>
+
+<pre><code class="javascript">$('a').click(function(event){
+  event.preventDefault();
+  //Go ahead Kanye, do your thing
+});
+</code></pre>
+
+<p>Don&rsquo;t ever let the haters get you down. <code>.preventDefault()</code> them.</p>
+
+<p style="text-align:center;"><img src="http://media.giphy.com/media/7qWeVklfBavh6/giphy.gif" alt="Haters gonna hate" /></p>
+]]></content>
+  </entry>
+  
+</feed>
